@@ -224,7 +224,7 @@ namespace Craft_and_Code {
     //////////////////////
     //Touchpad Functions//
     //////////////////////
-    //let samples = 12; // Number of readings for calibration
+
 
     /**
      * Wait for Touchpad
