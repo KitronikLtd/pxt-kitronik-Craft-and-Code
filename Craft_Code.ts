@@ -5,7 +5,7 @@
 // subcategory=["More"]
 //% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
 
-namespace Craft_and_Code {
+namespace Craft_Code {
     let lastBulbBrightness: number = 100;
     let lastMotorSpeed: number = 900;
     let isBulbOn: boolean = false;
