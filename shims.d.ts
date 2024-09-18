@@ -1,9 +1,8 @@
-// shims.d.ts
 // This file exposes the C++ functions to TypeScript for use in MakeCode.
-// It declares the setCustomPinHigh() and setCustomPinLow() functions so they can be called from your TypeScript code.
+// It declares the setCustomPinHigh() and setCustomPinLow() functions in the Craft_Code namespace.
 
-//% shim=setCustomPinHigh
+//% shim=Craft_Code::setCustomPinHigh
 declare function setCustomPinHigh(): void;
 
-//% shim=setCustomPinLow
+//% shim=Craft_Code::setCustomPinLow
 declare function setCustomPinLow(): void;
