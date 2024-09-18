@@ -1,1 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="device_forever" x="10" y="10"></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="device_forever" id="/C.ikn;ANR8a2K$tl[YV" x="106" y="53"><statement name="HANDLER"><block type="Craft_and_Code_Wait_for_touchpad" id="O!;vIuME!LGm54[-p8T|"></block></statement></block></xml>
