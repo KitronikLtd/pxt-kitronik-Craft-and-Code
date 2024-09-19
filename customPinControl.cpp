@@ -8,6 +8,7 @@ namespace Craft_Code {
      */
     void setCustomPinHigh() {
         uBit.io.P0.setDigitalValue(1); // Set pin P0 high
+        fiber_sleep(1); // Sleep for 1 milliseconds to stabilize the pin state
     }
 
     /**
@@ -15,5 +16,6 @@ namespace Craft_Code {
      */
     void setCustomPinLow() {
         uBit.io.P0.setDigitalValue(0); // Set pin P0 low
+        fiber_sleep(1); // Sleep for 1 milliseconds to stabilize the pin state
     }
 }
