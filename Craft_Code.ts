@@ -91,7 +91,7 @@ namespace Craft_Code {
 
     }
     /////////////////////////
-    //set Bulbulb brightness////
+    //set Bulb brightness////
     ////////////////////////
 
     /**
