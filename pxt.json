@@ -10,6 +10,7 @@
         "main.blocks",
         "main.ts",
         "README.md",
+        "customPinControl.ts",
         "Craft_Code.ts"
     ],
     "testFiles": [
