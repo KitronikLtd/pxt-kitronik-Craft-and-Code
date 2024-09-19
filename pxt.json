@@ -11,6 +11,7 @@
         "main.ts",
         "README.md",
         "customPinControl.ts",
+        "customPinControl.cpp",
         "Craft_Code.ts"
     ],
     "testFiles": [
