@@ -268,6 +268,7 @@ namespace Craft_Code {
         let startTime_1 = input.runningTime();
 
         while (input.runningTime() - startTime_1 < 40) {
+            //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
             setCustomPinHigh(); // Turn ON the Touchpad pin
 
             basic.pause(1);
@@ -276,7 +277,7 @@ namespace Craft_Code {
             samplesTotal += currentReading; // Add current reading to total
             sampleCount++; // Increment the sample count
         }
-        
+        //pins.digitalWritePin(DigitalPin.P0, 0);
         setCustomPinLow();
 
         let isTouched = false;
