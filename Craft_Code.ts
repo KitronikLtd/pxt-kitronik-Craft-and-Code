@@ -276,7 +276,7 @@ namespace Craft_Code {
             samplesTotal += currentReading; // Add current reading to total
             sampleCount++; // Increment the sample count
         }
-
+        
         setCustomPinLow();
 
         let isTouched = false;
