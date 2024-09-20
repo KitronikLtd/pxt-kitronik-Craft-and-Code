@@ -267,12 +267,11 @@ namespace Craft_Code {
         let sampleCount = 0;
         let startTime_1 = input.runningTime();
 
-        while (input.runningTime() - startTime_1 < 20) {
+        while (input.runningTime() - startTime_1 < 40) {
             //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
             setCustomPinHigh(); // Turn ON the Touchpad pin
 
-            //basic.pause(1);
-            currentReading = pins.analogReadPin(AnalogPin.P0);
+            readAnalogPinP0WithPause();
 
             samplesTotal += currentReading; // Add current reading to total
             sampleCount++; // Increment the sample count
@@ -287,7 +286,7 @@ namespace Craft_Code {
             lastAverageReading = currentAverageReading;
             firstSample = false;  // Reset the firstSample flag after first use
         } else {
-            isTouched = currentAverageReading > lastAverageReading * 1.05;
+            isTouched = currentAverageReading > lastAverageReading * 1.01;
             lastAverageReading = currentAverageReading;
         }
 

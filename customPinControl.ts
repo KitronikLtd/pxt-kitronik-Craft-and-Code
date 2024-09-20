@@ -9,4 +9,12 @@ namespace Craft_Code {
 
     export function setCustomPinLow(): void {
     }
+    /**
+    * Shim to call native C++ function for reading the analog pin with pause
+    */
+    //% shim=Craft_Code::readAnalogPinP0WithPause
+    export function readAnalogPinP0WithPause(): number {
+        return 0;
+
+    }
 }
