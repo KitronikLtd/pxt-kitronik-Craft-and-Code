@@ -8,7 +8,7 @@ namespace Craft_Code {
      */
     void setCustomPinHigh() {
         uBit.io.P0.setDigitalValue(1); // Set pin P0 high
-    }
+
 
     /**
      * Set pin P0 to low without flickering.
