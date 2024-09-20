@@ -270,8 +270,6 @@ namespace Craft_Code {
         while (input.runningTime() - startTime_1 < 40) {
             //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
             setCustomPinHigh(); // Turn ON the Touchpad pin
-
-            // readAnalogPinP0WithPause();
             basic.pause(1);
             //pins.digitalWritePin(DigitalPin.P19, 1); // testing
             currentReading = pins.analogReadPin(AnalogPin.P0);
@@ -281,7 +279,7 @@ namespace Craft_Code {
         }
         //pins.digitalWritePin(DigitalPin.P19, 0);// testing 
         //pins.digitalWritePin(DigitalPin.P0, 0);
-        setCustomPinLow();
+        //setCustomPinLow();
 
         let isTouched = false;
         let currentAverageReading = samplesTotal / sampleCount; // Calculate the average
