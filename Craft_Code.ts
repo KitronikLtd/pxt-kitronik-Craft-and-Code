@@ -268,19 +268,23 @@ namespace Craft_Code {
         let startTime_1 = input.runningTime();
 
         while (input.runningTime() - startTime_1 < 40) {
-            //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
-            setCustomPinHigh(); // Turn ON the Touchpad pin
+            pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
+            //setCustomPinHigh(); // Turn ON the Touchpad pin
             
-           // readAnalogPinP0WithPause();
+           //readAnalogPinP0WithPause();
+            //pins.digitalWritePin(DigitalPin.P19, 1); // testing
             basic.pause(1);
-            pins.digitalWritePin(DigitalPin.P19, 1); // testing
+            //for(let i =0; i<100000; i++){
+
+           // }
+            //pins.digitalWritePin(DigitalPin.P19, 0);// testing 
             currentReading = pins.analogReadPin(AnalogPin.P0);
 
             samplesTotal += currentReading; // Add current reading to total
             sampleCount++; // Increment the sample count
         }
-        pins.digitalWritePin(DigitalPin.P19, 0);// testing 
-        //pins.digitalWritePin(DigitalPin.P0, 0);
+        //pins.digitalWritePin(DigitalPin.P19, 0);// testing 
+        pins.digitalWritePin(DigitalPin.P0, 0);
         setCustomPinLow();
 
         let isTouched = false;
