@@ -273,14 +273,14 @@ namespace Craft_Code {
 
             // readAnalogPinP0WithPause();
             basic.pause(1);
-            pins.digitalWritePin(DigitalPin.P19, 1); // testing
+            //pins.digitalWritePin(DigitalPin.P19, 1); // testing
             currentReading = pins.analogReadPin(AnalogPin.P0);
 
             samplesTotal += currentReading; // Add current reading to total
             sampleCount++; // Increment the sample count
         }
-        pins.digitalWritePin(DigitalPin.P19, 0);// testing 
-        // pins.digitalWritePin(DigitalPin.P0, 0);
+        //pins.digitalWritePin(DigitalPin.P19, 0);// testing 
+        //pins.digitalWritePin(DigitalPin.P0, 0);
         setCustomPinLow();
 
         let isTouched = false;
