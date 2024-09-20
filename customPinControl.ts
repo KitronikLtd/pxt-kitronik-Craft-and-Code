@@ -1,4 +1,3 @@
-// Add your code here
 // customPinControl.ts
 // Simulates the pin control behavior without flickering.
 
