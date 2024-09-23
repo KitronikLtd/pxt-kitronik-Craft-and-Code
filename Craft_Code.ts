@@ -267,18 +267,24 @@ namespace Craft_Code {
         let sampleCount = 0;
         let startTime_1 = input.runningTime();
 
-        while (input.runningTime() - startTime_1 < 60) {
+        while (input.runningTime() - startTime_1 < 40) {
+            pins.digitalWritePin(DigitalPin.P19, 1);
             //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
+
             setCustomPinHigh(); // Turn ON the Touchpad pin
+            
+           // basic.pause(1);
+            //currentReading = pins.analogReadPin(AnalogPin.P0);
+            
 
-            basic.pause(1);
-            currentReading = pins.analogReadPin(AnalogPin.P0);
-
-            samplesTotal += currentReading; // Add current reading to total
-            sampleCount++; // Increment the sample count
+            //samplesTotal += currentReading; // Add current reading to total
+            //sampleCount++; // Increment the sample count
         }
+
         //pins.digitalWritePin(DigitalPin.P0, 0);
         setCustomPinLow();
+        pins.digitalWritePin(DigitalPin.P19, 0);
+        
 
         let isTouched = false;
         let currentAverageReading = samplesTotal / sampleCount; // Calculate the average
@@ -287,7 +293,7 @@ namespace Craft_Code {
             lastAverageReading = currentAverageReading;
             firstSample = false;  // Reset the firstSample flag after first use
         } else {
-            isTouched = currentAverageReading > lastAverageReading * 1.01;
+            isTouched = currentAverageReading > lastAverageReading * 1.05;
             lastAverageReading = currentAverageReading;
         }
 
