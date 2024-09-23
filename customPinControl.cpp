@@ -1,6 +1,7 @@
 #include "pxt.h"
 #include "MicroBit.h"
 
+using namespace pxt;
 namespace Craft_Code {
     /**
      * Set pin P0 to high without flickering.
