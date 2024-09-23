@@ -1,7 +1,7 @@
 /**
  * Blocks for Driving the kitronik Craft and Code Board
  */
-//% weight=100 color=#770c67 icon="\uf0c3" block="Craft_Code"
+//% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
 // subcategory=["More"]
 //% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
 
@@ -62,7 +62,7 @@ namespace Craft_Code {
     /**
      * Turns on BULB  
      */
-    //% blockId=Craft_Code_TurnBulb
+    //% blockId=Craft_and_Code_TurnBulb
     //% block="Turn Bulb |%Bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -98,7 +98,7 @@ namespace Craft_Code {
      *  Set Bulb brightness
      */
     //% subcategory="More"
-    //% blockId=Craft_Code_SetBulbBrightness
+    //% blockId=Craft_and_Code_SetBulbBrightness
     //% block="Set Bulb Brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -121,7 +121,7 @@ namespace Craft_Code {
     /**
      * Turns on Motor
      */
-    //% blockId=Craft_Code_TurnMotor
+    //% blockId=Craft_and_Code_TurnMotor
     //% block="Turn Motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -161,7 +161,7 @@ namespace Craft_Code {
      * Set motor speed
      */
     //% subcategory="More"
-    //% blockId=Craft_Code_SetMotorSpeed
+    //% blockId=Craft_and_Code_SetMotorSpeed
     //% block="Set Motor Speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -200,7 +200,7 @@ namespace Craft_Code {
     /**
      * Set Servo Angle
      */
-    //% blockId=Craft_Code_SetServoAngle
+    //% blockId=Craft_and_Code_SetServoAngle
     //% block="Set Servo Angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
@@ -231,7 +231,7 @@ namespace Craft_Code {
      */
     //% subcategory="More"
     //% block="Wait for Touchpad"
-    //% blockId=Craft_Code_Wait_for_touchpad
+    //% blockId=Craft_and_Code_Wait_for_touchpad
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="TOUCHPAD"
@@ -302,7 +302,7 @@ namespace Craft_Code {
     /**
      * Switched state
      */
-    //% blockId=Craft_Code_SwitchState
+    //% blockId=Craft_and_Code_SwitchState
     //% block="SwitchClosed"
     //% weight=100 blockGap=8
     //% color=#770c67
