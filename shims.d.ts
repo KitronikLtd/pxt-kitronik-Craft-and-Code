@@ -10,8 +10,8 @@ declare namespace Craft_Code {
     /**
      * Set pin P0 to low without flickering.
      */
-    //% shim=Craft_Code::CCPinHigh
-    function CCPinHigh(): void;
+    //% shim=Craft_Code::CCPinLow
+    function CCPinLow(): void;
 }
 
 // Auto-generated. Do not edit. Really.
