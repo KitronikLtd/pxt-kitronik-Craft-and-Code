@@ -4,10 +4,15 @@
 
 
 namespace Craft_Code {
-    //% shim=Craft_Code::setCustomPinHigh
-    export function setCustomPinHigh(): void;
+    //% shim=Craft_Code::setCustomPinHigh 
+    export function setCustomPinHigh(): void{
+
+    }
+   
 
     //% shim=Craft_Code::setCustomPinLow
-    export function setCustomPinLow(): void;
-}
+    export function setCustomPinLow(): void{
 
+    }
+
+}

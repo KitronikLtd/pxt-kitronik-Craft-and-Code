@@ -1,6 +1,4 @@
-/**
- * Blocks for Driving the kitronik Craft and Code Board
- */
+
 //% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
 // subcategory=["More"]
 //% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
@@ -11,7 +9,7 @@ namespace Craft_Code {
     let isBulbOn: boolean = false;
     let isMotorOn: boolean = false; // Track whether the motor is on or off
     let pwmValue = 0;
-    /**
+    /*
      * Turn Bulb ON and OFF
      */
     export enum BulbState {
@@ -21,7 +19,7 @@ namespace Craft_Code {
         Off
     }
 
-    /**
+    /*
      * Turn motor ON and OFF
      */
     export enum MotorState {
@@ -31,7 +29,7 @@ namespace Craft_Code {
         Off
     }
 
-    /**
+    /*
      * Set light brightness
      */
     export enum BulbBrightnessState {
@@ -43,7 +41,7 @@ namespace Craft_Code {
         Bright = 100
     }
 
-    /**
+    /*
      * Set motor speed
      */
     export enum MotorSpeedState {
@@ -59,7 +57,7 @@ namespace Craft_Code {
     ///Bulb-ON-OFF///
     ////////////////
 
-    /**
+    /*
      * Turns on BULB  
      */
     //% blockId=Craft_and_Code_TurnBulb
@@ -94,7 +92,7 @@ namespace Craft_Code {
     //set Bulb brightness////
     ////////////////////////
 
-    /**
+    /*
      *  Set Bulb brightness
      */
     //% subcategory="More"
@@ -118,7 +116,7 @@ namespace Craft_Code {
     ///Motor-ON-OFF//
     ////////////////
 
-    /**
+    /*
      * Turns on Motor
      */
     //% blockId=Craft_and_Code_TurnMotor
@@ -157,7 +155,7 @@ namespace Craft_Code {
     //Motor-SPEED///
     ////////////////
 
-    /**
+    /*
      * Set motor speed
      */
     //% subcategory="More"
@@ -197,7 +195,7 @@ namespace Craft_Code {
     ////SERVO////
     //////////////
 
-    /**
+    /*
      * Set Servo Angle
      */
     //% blockId=Craft_and_Code_SetServoAngle
@@ -226,7 +224,7 @@ namespace Craft_Code {
     //////////////////////
 
 
-    /**
+    /*
      * Wait for Touchpad
      */
     //% subcategory="More"
@@ -252,7 +250,7 @@ namespace Craft_Code {
     }
     let lastAverageReading = 0;
     let firstSample = true;
-    /**
+    /*
      * Get TouchPad State
      */
     //% subcategory="More"
@@ -304,7 +302,7 @@ namespace Craft_Code {
     //////////////////
     ////SWITCH///////
     ////////////////
-    /**
+    /*
      * Switched state
      */
     //% blockId=Craft_and_Code_SwitchState
