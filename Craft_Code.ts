@@ -271,7 +271,7 @@ namespace Craft_Code {
             pins.digitalWritePin(DigitalPin.P19, 1);
             //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
 
-            setCustomPinHigh(); // Turn ON the Touchpad pin
+            CCPinHigh(); // Turn ON the Touchpad pin
             
            // basic.pause(1);
             //currentReading = pins.analogReadPin(AnalogPin.P0);
@@ -282,7 +282,7 @@ namespace Craft_Code {
         }
 
         //pins.digitalWritePin(DigitalPin.P0, 0);
-        setCustomPinLow();
+        CCPinLow();
         pins.digitalWritePin(DigitalPin.P19, 0);
         
 

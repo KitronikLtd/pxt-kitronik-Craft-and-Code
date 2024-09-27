@@ -11,6 +11,7 @@
         "main.ts",
         "README.md",
         "Craft_Code.ts",
+        "shims.d.ts",
         "customPinControl.ts",
         "customPinControl.cpp"
     ],
@@ -24,5 +25,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }

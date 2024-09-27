@@ -1,8 +1,17 @@
-// This file exposes the C++ functions to TypeScript for use in MakeCode.
-// It declares the setCustomPinHigh() and setCustomPinLow() functions in the Craft_Code namespace.
+// Auto-generated. Do not edit.
+declare namespace Craft_Code {
 
-//% shim=Craft_Code::setCustomPinHigh
-declare function setCustomPinHigh(): void;
+    /**
+     * Set pin P0 to high without flickering.
+     */
+    //% shim=Craft_Code::CCPinHigh
+    function CCPinHigh(): void;
 
-//% shim=Craft_Code::setCustomPinLow
-declare function setCustomPinLow(): void;
+    /**
+     * Set pin P0 to low without flickering.
+     */
+    //% shim=Craft_Code::CCPinHigh
+    function CCPinHigh(): void;
+}
+
+// Auto-generated. Do not edit. Really.
