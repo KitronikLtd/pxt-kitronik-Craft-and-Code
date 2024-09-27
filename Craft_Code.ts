@@ -1,5 +1,5 @@
 /**
- * Blocks for Driving the Kitronik_Craft_and_Code board
+ * Blocks for Driving the kitronik Craft and Code Board
  */
 //% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
 // subcategory=["More"]
