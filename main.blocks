@@ -1,1 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="device_forever" id="vadf!i+$vMCrg*W72OT*" x="0" y="0"><statement name="HANDLER"><block type="Craft_and_Code_Wait_for_touchpad" id="2kRAt2m{E+U*mDvDp2w4"></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="device_forever" id="[US@3NGx0.5yIn1O|j)a" x="20" y="20"><statement name="HANDLER"><block type="Craft_and_Code_Wait_for_touchpad" id="i!h~dyC(yK.4lw)29ncY"></block></statement></block></xml>

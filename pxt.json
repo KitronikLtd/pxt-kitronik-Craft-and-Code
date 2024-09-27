@@ -1,5 +1,5 @@
 {
-    "name": "Craft_Code",
+    "name": "pxt-Craft_Code",
     "description": "",
     "dependencies": {
         "core": "*",

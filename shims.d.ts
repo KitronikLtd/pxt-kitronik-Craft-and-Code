@@ -1,4 +1,3 @@
-// Auto-generated. Do not edit.
 declare namespace Craft_Code {
 
     /**
