@@ -1,14 +1,12 @@
+// Add your code here
 // customPinControl.ts
-namespace Craft_Code {
-    /**
-     * Set the pin to high
-     */
-    //% shim=Craft_Code::setCustomPinHigh
-    declare function setCustomPinHigh(): void 
+// Simulates the pin control behavior without flickering.
 
-    /**
-     * Set the pin to low
-     */
-    //% shim=Craft_Code::setCustomPinLow
-    declare function setCustomPinLow(): void
+
+namespace Craft_Code {
+    export function setCustomPinHigh(): void {
+    }
+
+    export function setCustomPinLow(): void {
+    }
 }
