@@ -1,7 +1,7 @@
 #include "pxt.h"
 
 
-namespace Craft_Code {
+namespace CraftCode {
     //% 
     void setCustomPinHigh() {
         uBit.io.P0.setDigitalValue(1);
