@@ -1,5 +1,5 @@
 {
-    "name": "pxt-Craft_Code",
+    "name": "pxt-CraftCode",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -10,7 +10,7 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "Craft_Code.ts",
+        "CraftCode.ts",
         "shims.d.ts",
         "enums.d.ts",
         "customPinControl.ts",
