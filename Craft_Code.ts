@@ -1,8 +1,8 @@
-//% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
+//% weight=100 color=#770c67 icon="\uf0c3" block="CraftandCode"
 // subcategory=["More"]
 //% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
 
-namespace Craft_Code {
+namespace CraftCode {
     let lastBulbBrightness: number = 100;
     let lastMotorSpeed: number = 900;
     let isBulbOn: boolean = false;
@@ -59,7 +59,7 @@ namespace Craft_Code {
     /*
      * Turns on BULB  
      */
-    //% blockId=Craft_and_Code_TurnBulb
+    //% blockId=CraftandCode_TurnBulb
     //% block="Turn Bulb |%Bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -95,7 +95,7 @@ namespace Craft_Code {
      *  Set Bulb brightness
      */
     //% subcategory="More"
-    //% blockId=Craft_and_Code_SetBulbBrightness
+    //% blockId=CraftandCode_SetBulbBrightness
     //% block="Set Bulb Brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -118,7 +118,7 @@ namespace Craft_Code {
     /*
      * Turns on Motor
      */
-    //% blockId=Craft_and_Code_TurnMotor
+    //% blockId=CraftandCode_TurnMotor
     //% block="Turn Motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -158,7 +158,7 @@ namespace Craft_Code {
      * Set motor speed
      */
     //% subcategory="More"
-    //% blockId=Craft_and_Code_SetMotorSpeed
+    //% blockId=CraftandCode_SetMotorSpeed
     //% block="Set Motor Speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -197,7 +197,7 @@ namespace Craft_Code {
     /*
      * Set Servo Angle
      */
-    //% blockId=Craft_and_Code_SetServoAngle
+    //% blockId=CraftandCode_SetServoAngle
     //% block="Set Servo Angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
@@ -228,7 +228,7 @@ namespace Craft_Code {
      */
     //% subcategory="More"
     //% block="Wait for Touchpad"
-    //% blockId=Craft_and_Code_Wait_for_touchpad
+    //% blockId=CraftandCode_Wait_for_touchpad
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="TOUCHPAD"
@@ -304,7 +304,7 @@ namespace Craft_Code {
     /*
      * Switched state
      */
-    //% blockId=Craft_and_Code_SwitchState
+    //% blockId=CraftandCode_SwitchState
     //% block="SwitchClosed"
     //% weight=100 blockGap=8
     //% color=#770c67
