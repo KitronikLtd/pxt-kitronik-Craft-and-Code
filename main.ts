@@ -1,3 +1,3 @@
 basic.forever(function () {
-    Craft_Code.waitForTouchPad()
+    CraftCode.waitForTouchPad()
 })
