@@ -3,7 +3,7 @@
 // Simulates the pin control behavior without flickering.
 
 
-namespace Craft_Code {
+namespace CraftCode {
     //% shim=Craft_Code::setCustomPinHigh 
     export function setCustomPinHigh(): void{
 
