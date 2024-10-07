@@ -1,2 +1,2 @@
-declare namespace Craft_Code {
+declare namespace CraftCode {
 }
