@@ -1,14 +1,17 @@
-//% weight=100 color=#770c67 icon="\uf0c3" block="CraftandCode"
+/**
+ * Blocks for Driving the kitronik Craft and Code Board
+ */
+//% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
 // subcategory=["More"]
 //% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
 
-namespace CraftCode {
+namespace Craft_Code {
     let lastBulbBrightness: number = 100;
     let lastMotorSpeed: number = 900;
     let isBulbOn: boolean = false;
     let isMotorOn: boolean = false; // Track whether the motor is on or off
     let pwmValue = 0;
-    /*
+    /**
      * Turn Bulb ON and OFF
      */
     export enum BulbState {
@@ -18,7 +21,7 @@ namespace CraftCode {
         Off
     }
 
-    /*
+    /**
      * Turn motor ON and OFF
      */
     export enum MotorState {
@@ -28,7 +31,7 @@ namespace CraftCode {
         Off
     }
 
-    /*
+    /**
      * Set light brightness
      */
     export enum BulbBrightnessState {
@@ -40,7 +43,7 @@ namespace CraftCode {
         Bright = 100
     }
 
-    /*
+    /**
      * Set motor speed
      */
     export enum MotorSpeedState {
@@ -56,10 +59,10 @@ namespace CraftCode {
     ///Bulb-ON-OFF///
     ////////////////
 
-    /*
+    /**
      * Turns on BULB  
      */
-    //% blockId=CraftandCode_TurnBulb
+    //% blockId=Craft_and_Code_TurnBulb
     //% block="Turn Bulb |%Bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -91,11 +94,11 @@ namespace CraftCode {
     //set Bulb brightness////
     ////////////////////////
 
-    /*
+    /**
      *  Set Bulb brightness
      */
     //% subcategory="More"
-    //% blockId=CraftandCode_SetBulbBrightness
+    //% blockId=Craft_and_Code_SetBulbBrightness
     //% block="Set Bulb Brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -115,10 +118,10 @@ namespace CraftCode {
     ///Motor-ON-OFF//
     ////////////////
 
-    /*
+    /**
      * Turns on Motor
      */
-    //% blockId=CraftandCode_TurnMotor
+    //% blockId=Craft_and_Code_TurnMotor
     //% block="Turn Motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -154,11 +157,11 @@ namespace CraftCode {
     //Motor-SPEED///
     ////////////////
 
-    /*
+    /**
      * Set motor speed
      */
     //% subcategory="More"
-    //% blockId=CraftandCode_SetMotorSpeed
+    //% blockId=Craft_and_Code_SetMotorSpeed
     //% block="Set Motor Speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -194,10 +197,10 @@ namespace CraftCode {
     ////SERVO////
     //////////////
 
-    /*
+    /**
      * Set Servo Angle
      */
-    //% blockId=CraftandCode_SetServoAngle
+    //% blockId=Craft_and_Code_SetServoAngle
     //% block="Set Servo Angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
@@ -223,12 +226,12 @@ namespace CraftCode {
     //////////////////////
 
 
-    /*
+    /**
      * Wait for Touchpad
      */
     //% subcategory="More"
     //% block="Wait for Touchpad"
-    //% blockId=CraftandCode_Wait_for_touchpad
+    //% blockId=Craft_and_Code_Wait_for_touchpad
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="TOUCHPAD"
@@ -249,7 +252,7 @@ namespace CraftCode {
     }
     let lastAverageReading = 0;
     let firstSample = true;
-    /*
+    /**
      * Get TouchPad State
      */
     //% subcategory="More"
@@ -259,52 +262,60 @@ namespace CraftCode {
     //% color=#770c67
     //% group="TOUCHPAD"
     export function getTouchPadState(): boolean {
+        //"get TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
+        //the method of operation is to take the IO pin high digitally, wait a millisecond, and then read the voltage on the pin
+        //if a human finger is present, the decay of the voltage on the pin is much quicker than if no finger is present 
+        //the average difference between no finger and a finger present is approximately a 5% increase in the readings.
+
+        //IMPORTANT ENGINEERS NOTE:
+        //As the sensor is  capacitive, when a lead is connected to the touchpad (P0), an equal length lead needs to be present on the Board
+        //During normal operation, a lead and foil pad would be added to the touchpad, and leads from the bulb pads to the bulb will be present - giving an equal ground return path
+        //However, if the bulb and leads are removed, and the lead to the foil pad are kept, there isn't a long enough return path - meaning the touch will not work effectively
+        //Ensuring that there is at least a peripheral or the USB lead connected will provide enough surface area for the ground return path. Trust me it works!
+
         let currentReading = 0;
         let samplesTotal = 0;
         let sampleCount = 0;
         let startTime_1 = input.runningTime();
-
+        let isTouched = false;
+        //We take 400 samples in 40ms, and take an average of the reading - this is to average out mains hum at 50/60hz
         while (input.runningTime() - startTime_1 < 40) {
-            pins.digitalWritePin(DigitalPin.P19, 1);
-            //pins.digitalWritePin(DigitalPin.P0, 1); // Turn ON the Touchpad pin
-
-            setCustomPinHigh(); // Turn ON the Touchpad pin
-            
-           // basic.pause(1);
-            //currentReading = pins.analogReadPin(AnalogPin.P0);
-            
-
-            //samplesTotal += currentReading; // Add current reading to total
-            //sampleCount++; // Increment the sample count
+            setCustomPinHigh(); //SetCustomPinHigh and setCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
+            control.waitMicros(100) // wait 100 MicroSeconds to read the data halfway through the curve  
+            currentReading = pins.analogReadPin(AnalogPin.P0) //read the voltage on the pin - this should be at the midpoint of the decay curve due to the previous 1ms delay
+            samplesTotal += currentReading // Add current reading to reading total, so we can average it later
+            sampleCount++ // Increment the number of samples we have captured
         }
 
-        //pins.digitalWritePin(DigitalPin.P0, 0);
+        //force the pin low, to drain the rest of the voltage stored on the pin 
         setCustomPinLow();
-        pins.digitalWritePin(DigitalPin.P19, 0);
-        
 
-        let isTouched = false;
-        let currentAverageReading = samplesTotal / sampleCount; // Calculate the average
+
+        let currentAverageReading = samplesTotal / sampleCount; // Calculate the average of the samples taken within 40ms
 
         if (firstSample) {
             lastAverageReading = currentAverageReading;
             firstSample = false;  // Reset the firstSample flag after first use
         } else {
+            //the average is stored as "lastAverageReading", and then compared against the latest reading
+            //if the current average is larger than the last reading by at least 5% then set the isTouched value to true, else it's false"
             isTouched = currentAverageReading > lastAverageReading * 1.05;
+            //store the latest average as the next previous reading
             lastAverageReading = currentAverageReading;
         }
-
+        //return the status of the touchpad as a bool
         return isTouched;
+
     }
 
 
     //////////////////
     ////SWITCH///////
     ////////////////
-    /*
+    /**
      * Switched state
      */
-    //% blockId=CraftandCode_SwitchState
+    //% blockId=Craft_and_Code_SwitchState
     //% block="SwitchClosed"
     //% weight=100 blockGap=8
     //% color=#770c67

@@ -1,10 +1,6 @@
-declare namespace Craft_Code {
+// Auto-generated. Do not edit.
 
-    /**
-     * Set pin P0 to low without flickering.
-     */
-    //% shim=Craft_Code::ccsetCustomPinLow
-    function ccsetCustomPinLow(): void;
+declare namespace Craft_Code {
 }
 
 // Auto-generated. Do not edit. Really.

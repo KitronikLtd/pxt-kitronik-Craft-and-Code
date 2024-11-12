@@ -1,5 +1,5 @@
 {
-    "name": "pxt-CraftCode",
+    "name": "pxt-kitronik-Craft-and-Code",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -10,17 +10,17 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "CraftCode.ts",
-        "shims.d.ts",
-        "enums.d.ts",
+        "Craft_Code.ts",
         "customPinControl.ts",
-        "customPinControl.cpp"
+        "customPinControl.cpp",
+        "shims.d.ts",
+        "enums.d.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "7.0.42",
+        "target": "7.0.51",
         "targetId": "microbit"
     },
     "supportedTargets": [
