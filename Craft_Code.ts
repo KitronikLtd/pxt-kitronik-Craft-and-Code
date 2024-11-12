@@ -7,7 +7,7 @@
 
 namespace Craft_Code {
     let lastBulbBrightness: number = 100;
-    let lastMotorSpeed: number = 900;
+    let lastMotorSpeed: number = 350; //initial speed of the motor - currently set to 350 = "slow"
     let isBulbOn: boolean = false;
     let isMotorOn: boolean = false; // Track whether the motor is on or off
     let pwmValue = 0;
