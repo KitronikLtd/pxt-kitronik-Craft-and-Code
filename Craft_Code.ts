@@ -1,9 +1,9 @@
 /**
  * Blocks for Driving the kitronik Craft and Code Board
  */
-//% weight=100 color=#770c67 icon="\uf0c3" block="Craft_and_Code"
+//% weight=100 color=#770c67 icon="\uf0c3" block="Craft and Code"
 // subcategory=["More"]
-//% group = '["BULB", "MOTOR", "SERVO", "TOUCHPAD"]'
+//% group = '["Bulb", "Motor", "Servo", "Touchpad"]'
 
 namespace Craft_Code {
     let lastBulbBrightness: number = 100;
@@ -14,10 +14,10 @@ namespace Craft_Code {
     /**
      * Turn Bulb ON and OFF
      */
-    export enum BulbState {
-        //% block="ON"
+    export enum bulbState {
+        //% block="on"
         On,
-        //% block="OFF"
+        //% block="off"
         Off
     }
 
@@ -25,9 +25,9 @@ namespace Craft_Code {
      * Turn motor ON and OFF
      */
     export enum MotorState {
-        //% block="ON"
+        //% block="on"
         On,
-        //% block="OFF"
+        //% block="off"
         Off
     }
 
@@ -35,11 +35,11 @@ namespace Craft_Code {
      * Set light brightness
      */
     export enum BulbBrightnessState {
-        //% block="Dim"
+        //% block="dim"
         Dim = 33,
-        //% block="Medium"
+        //% block="medium"
         Medium = 66,
-        //% block="Bright"
+        //% block="bright"
         Bright = 100
     }
 
@@ -47,11 +47,11 @@ namespace Craft_Code {
      * Set motor speed
      */
     export enum MotorSpeedState {
-        //% block="Slow"
+        //% block="slow"
         Slow = 350,
-        //% block="Medium"
+        //% block="medium"
         Medium = 600,
-        //% block="Fast"
+        //% block="fast"
         Fast = 900
     }
 
@@ -63,14 +63,14 @@ namespace Craft_Code {
      * Turns on BULB  
      */
     //% blockId=Craft_and_Code_TurnBulb
-    //% block="Turn Bulb |%Bulbstate||"
+    //% block="turn bulb |%bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="BULB"
+    //% group="Bulb"
     //% x.min=0 x.max=1
     //% x.fieldOptions.precision=1
-    export function TurnBulb(Bulbstate: BulbState): void {
-        isBulbOn = Bulbstate === BulbState.On;
+    export function TurnBulb(bulbstate: bulbState): void {
+        isBulbOn = bulbstate === bulbState.On;
         if (isBulbOn) {
             if (lastBulbBrightness == BulbBrightnessState.Bright) {
                 // Use digital write for 100%
@@ -97,12 +97,12 @@ namespace Craft_Code {
     /**
      *  Set Bulb brightness
      */
-    //% subcategory="More"
+    //% subcategory="more"
     //% blockId=Craft_and_Code_SetBulbBrightness
-    //% block="Set Bulb Brightness |%brightnessstate|"
+    //% block="set bulb brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="BULB"
+    //% group="Bulb"
 
     export function SetBulbBrightness(brightnessstate: BulbBrightnessState): void {
         // Always store the last value, but do not calculate or apply it yet
@@ -122,10 +122,10 @@ namespace Craft_Code {
      * Turns on Motor
      */
     //% blockId=Craft_and_Code_TurnMotor
-    //% block="Turn Motor |%motorstate||"
+    //% block="turn motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="MOTOR"
+    //% group="Motor"
     //% y.min=0 y.max=1
     //% y.fieldOptions.precision=1
     export function TurnMotor(motorstate: MotorState): void {
@@ -160,9 +160,9 @@ namespace Craft_Code {
     /**
      * Set motor speed
      */
-    //% subcategory="More"
+    //% subcategory="more"
     //% blockId=Craft_and_Code_SetMotorSpeed
-    //% block="Set Motor Speed |%speedstate|"
+    //% block="set motor speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Motor"
@@ -201,13 +201,13 @@ namespace Craft_Code {
      * Set Servo Angle
      */
     //% blockId=Craft_and_Code_SetServoAngle
-    //% block="Set Servo Angle |%degrees| degrees"
+    //% block="set servo angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
     //% degrees.defl=90
     //% degrees.shadow="protractorPicker"
     //% weight=100 blockGap=8
-    //% group="SERVO"
+    //% group="Servo"
     export function setServoAngle(degrees: number) {
         // Check if the degrees are greater than 180
         if (degrees > 180 || degrees < 0) {
@@ -229,12 +229,12 @@ namespace Craft_Code {
     /**
      * Wait for Touchpad
      */
-    //% subcategory="More"
-    //% block="Wait for Touchpad"
+    //% subcategory="more"
+    //% block="wait for touchpad"
     //% blockId=Craft_and_Code_Wait_for_touchpad
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="TOUCHPAD"
+    //% group="Touchpad"
     export function waitForTouchPad(): void {
 
         let touchPadState = false; // Initially, the touchpad is not pressed
@@ -255,12 +255,12 @@ namespace Craft_Code {
     /**
      * Get TouchPad State
      */
-    //% subcategory="More"
-    //% block="TouchPad pressed"
+    //% subcategory="more"
+    //% block="touchpad pressed"
     //% blockId=Touchpad pressed
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="TOUCHPAD"
+    //% group="Touchpad"
     export function getTouchPadState(): boolean {
         //"get TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
         //the method of operation is to take the IO pin high digitally, wait a millisecond, and then read the voltage on the pin
@@ -313,17 +313,16 @@ namespace Craft_Code {
     ////SWITCH///////
     ////////////////
     /**
-     * Switched state
+     * Switch state
      */
     //% blockId=Craft_and_Code_SwitchState
-    //% block="SwitchClosed"
+    //% block="switch closed"
     //% weight=100 blockGap=8
     //% color=#770c67
-    //% group="SWITCH"
+    //% group="Switch"
     export function SwitchClosed(): boolean {
         //switch is connected to Pin P1
         return pins.digitalReadPin(DigitalPin.P1) == 1;
     }
 
 }
-
