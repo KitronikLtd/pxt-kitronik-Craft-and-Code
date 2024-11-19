@@ -60,8 +60,7 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * Turns on Bulb
-     * Turns the Bulb Output On or Off, as defined by a drop down menu
+     * turn bulb on/off: Turns the Bulb Output On or Off, as defined by a drop down menu
      * @param bulbstate : On - turns the bulb output on, Off - turns the bulb output off
      */
     //% blockId=craft_and_code_turnbulb
@@ -97,8 +96,7 @@ namespace CraftAndCode {
     ////////////////////////
 
     /**
-     * Set Bulb brightness
-     * Sets the brightness of the attached bulb to three possible states, defined by a drop down menu.
+     * Set Bulb brightness : changes the brightness of the attached bulb to three possible states, defined by a drop down menu.
      * @param brightnessstate : "dim", the lowest possible brightness for the bulb
      * "medium", the midpoint between the lowest and highest brightness
      * "bright", the brightest possible setting for the bulb 
@@ -165,8 +163,8 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * Set motor speed
-     * Sets the speed of the attached motor to three possible states, defined by a drop down menu.
+     * Set motor speed.
+     * Changes the speed of the attached motor to three possible states, defined by a drop down menu.
      * @param speedstate : "slow", the slowest possible speed for the motor to run at
      * "medium", the midpoint between the slowest and fastest the motor can run
      * "fast", the fastest possible speed for the motor
@@ -209,7 +207,7 @@ namespace CraftAndCode {
     //////////////
 
     /**
-     * Set Servo Angle
+     * Set Servo Angle.
      * Moves the attached Servo to the requested angle, defined by tbe parameter "degrees"
      * @param degrees : how many degrees the servo needs to turn, I.E, 90° 
      */
@@ -328,8 +326,10 @@ namespace CraftAndCode {
     ////SWITCH///////
     ////////////////
     /**
-     * Switch State
-     * Returns the state of the switch pad as a boolean (1 or 0) value
+     * Switch Closed
+     * Returns the state of the switch pad as a boolean (1 or 0) value.
+     * When the Switch is Closed, a boolean 1 is returned. 
+     * When the Switch is Open, a boolean 0 is returned.
      */
     //% blockId=craft_and_code_switchstate
     //% block="switch closed"
