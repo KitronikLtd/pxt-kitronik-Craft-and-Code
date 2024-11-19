@@ -14,7 +14,7 @@ namespace CraftAndCode {
     /**
      * Turn Bulb ON and OFF
      */
-    export enum bulbState {
+    export enum BULBSTATE {
         //% block="on"
         On,
         //% block="off"
@@ -24,7 +24,7 @@ namespace CraftAndCode {
     /**
      * Turn motor ON and OFF
      */
-    export enum MotorState {
+    export enum MOTORSTATE {
         //% block="on"
         On,
         //% block="off"
@@ -34,7 +34,7 @@ namespace CraftAndCode {
     /**
      * Set light brightness
      */
-    export enum BulbBrightnessState {
+    export enum BULBBRIGHTNESSSTATE {
         //% block="dim"
         Dim = 33,
         //% block="medium"
@@ -46,7 +46,7 @@ namespace CraftAndCode {
     /**
      * Set motor speed
      */
-    export enum MotorSpeedState {
+    export enum MOTORSPEEDSTATE {
         //% block="slow"
         Slow = 350,
         //% block="medium"
@@ -71,10 +71,10 @@ namespace CraftAndCode {
     //% group="Bulb"
     //% x.min=0 x.max=1
     //% x.fieldOptions.precision=1
-    export function TurnBulb(bulbstate: bulbState): void {
-        isBulbOn = bulbstate === bulbState.On;
+    export function TurnBulb(bulbstate: BULBSTATE): void {
+        isBulbOn = bulbstate === BULBSTATE.On;
         if (isBulbOn) {
-            if (lastBulbBrightness == BulbBrightnessState.Bright) {
+            if (lastBulbBrightness == BULBBRIGHTNESSSTATE.Bright) {
                 // Use digital write for 100%
                 pins.digitalWritePin(DigitalPin.P8, 1);
             }
@@ -110,7 +110,7 @@ namespace CraftAndCode {
     //% color=#770c67
     //% group="Bulb"
 
-    export function SetBulbBrightness(brightnessstate: BulbBrightnessState): void {
+    export function SetBulbBrightness(brightnessstate: BULBBRIGHTNESSSTATE): void {
         // Always store the last value, but do not calculate or apply it yet
         lastBulbBrightness = brightnessstate as number;  // Store the last set value
         if (isBulbOn) { // Check if the Bulb is on before setting brightness
@@ -135,8 +135,8 @@ namespace CraftAndCode {
     //% group="Motor"
     //% y.min=0 y.max=1
     //% y.fieldOptions.precision=1
-    export function TurnMotor(motorstate: MotorState): void {
-        if (motorstate === MotorState.On && !isMotorOn) {
+    export function TurnMotor(motorstate: MOTORSTATE): void {
+        if (motorstate === MOTORSTATE.On && !isMotorOn) {
             isMotorOn = true;
             // Gradually increase the motor speed to last set speed
             let totalDuration = 500; // Total duration in milliseconds to reach desired speed.
@@ -151,7 +151,7 @@ namespace CraftAndCode {
                 basic.pause(pauseDuration);
             }
 
-        } else if (motorstate === MotorState.Off && isMotorOn) {
+        } else if (motorstate === MOTORSTATE.Off && isMotorOn) {
             isMotorOn = false;
 
             pins.analogWritePin(AnalogPin.P12, 0);
@@ -177,7 +177,7 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Motor"
-    export function SetMotorSpeed(speedstate: MotorSpeedState): void {
+    export function SetMotorSpeed(speedstate: MOTORSPEEDSTATE): void {
         // Always store the last value
         let newSpeed = speedstate as number;
 
@@ -221,7 +221,7 @@ namespace CraftAndCode {
     //% degrees.shadow="protractorPicker"
     //% weight=100 blockGap=8
     //% group="Servo"
-    export function setServoAngle(degrees: number) {
+    export function SetServoAngle(degrees: number) {
         // Check if the degrees are greater than 180
         if (degrees > 180 || degrees < 0) {
             console.error("Error: Angle cannot be more than 180 degrees or less then 0");
@@ -249,18 +249,18 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
-    export function waitForTouchPad(): void {
+    export function WaitForTouchPad(): void {
 
         let touchPadState = false; // Initially, the touchpad is not pressed
 
         // Now, wait for the touchpad to be pressed
         while (!touchPadState) {
-            touchPadState = getTouchPadState(); // Reading the touchpad state only here
+            touchPadState = GetTouchPadState(); // Reading the touchpad state only here
             basic.pause(1);
 
         }
         while (touchPadState) {
-            touchPadState = getTouchPadState();
+            touchPadState = GetTouchPadState();
             basic.pause(1);
         }
     }
@@ -276,7 +276,7 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
-    export function getTouchPadState(): boolean {
+    export function GetTouchPadState(): boolean {
         //"get TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
         //the method of operation is to take the IO pin high digitally, wait a millisecond, and then read the voltage on the pin
         //if a human finger is present, the decay of the voltage on the pin is much quicker than if no finger is present 
@@ -329,7 +329,7 @@ namespace CraftAndCode {
     ////////////////
     /**
      * Switch State
-     * Returns the state of the switch pads as a boolean (1 or 0) value
+     * Returns the state of the switch pad as a boolean (1 or 0) value
      */
     //% blockId=Craft_and_Code_SwitchState
     //% block="switch closed"
