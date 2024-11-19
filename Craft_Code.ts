@@ -5,7 +5,7 @@
 // subcategory=["More"]
 //% group = '["Bulb", "Motor", "Servo", "Touchpad"]'
 
-namespace Craft_Code {
+namespace CraftAndCode {
     let lastBulbBrightness: number = 100;
     let lastMotorSpeed: number = 350; //initial speed of the motor - currently set to 350 = "slow"
     let isBulbOn: boolean = false;
