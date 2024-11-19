@@ -60,7 +60,7 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * turn bulb [bulbstate]: Turns the craft and code bulb output on or off, as defined by a drop down menu.
+     * turn bulb [bulbstate]: Turns the craft and code bulb output on or off, as defined by a drop down menu
      * @param bulbstate : on - turns the bulb output on. off - turns the bulb output off.
      */
     //% blockId=craft_and_code_turnbulb
