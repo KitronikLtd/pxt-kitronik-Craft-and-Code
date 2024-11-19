@@ -1,7 +1,7 @@
 // test program for the Craft and Code Blocks. Should exercise all IO on the Craft and Code Board,
 // as well as all blocks within the Craft and Code extension.  
 // infinite loop
-/* Test.ts commented out for user testing. Will be added once extension added to MakeCode.
+// Martin, if this runs when the extension is added, I am not going to be happy.
 basic.forever(function () {
     // if switch contacts have been bridged, perform the following
     if (Craft_Code.SwitchClosed()) {
@@ -52,4 +52,3 @@ basic.forever(function () {
         Craft_Code.waitForTouchPad()
     }
 })
-*/
