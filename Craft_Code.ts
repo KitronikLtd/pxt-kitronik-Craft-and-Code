@@ -60,7 +60,9 @@ namespace Craft_Code {
     ////////////////
 
     /**
-     * Turns on BULB  
+     * Turns on Bulb
+     * Turns the Bulb Output On or Off, as defined by a drop down menu
+     * @param bulbstate : On - turns the bulb output on, Off - turns the bulb output off
      */
     //% blockId=Craft_and_Code_TurnBulb
     //% block="turn bulb |%bulbstate||"
@@ -95,7 +97,11 @@ namespace Craft_Code {
     ////////////////////////
 
     /**
-     *  Set Bulb brightness
+     * Set Bulb brightness
+     * Sets the brightness of the attached bulb to three possible states, defined by a drop down menu.
+     * @param brightnessstate : "dim", the lowest possible brightness for the bulb
+     * "medium", the midpoint between the lowest and highest brightness
+     * "bright", the brightest possible setting for the bulb 
      */
     //% subcategory="more"
     //% blockId=Craft_and_Code_SetBulbBrightness
@@ -119,7 +125,8 @@ namespace Craft_Code {
     ////////////////
 
     /**
-     * Turns on Motor
+     * Turns the Motor Output On or Off, as defined by a drop down menu
+     * @param motorstate : On - turns the motor output on, Off - turns the motor output off
      */
     //% blockId=Craft_and_Code_TurnMotor
     //% block="turn motor |%motorstate||"
@@ -159,6 +166,10 @@ namespace Craft_Code {
 
     /**
      * Set motor speed
+     * Sets the speed of the attached motor to three possible states, defined by a drop down menu.
+     * @param speedstate : "slow", the slowest possible speed for the motor to run at
+     * "medium", the midpoint between the slowest and fastest the motor can run
+     * "fast", the fastest possible speed for the motor
      */
     //% subcategory="more"
     //% blockId=Craft_and_Code_SetMotorSpeed
@@ -199,6 +210,8 @@ namespace Craft_Code {
 
     /**
      * Set Servo Angle
+     * Moves the attached Servo to the requested angle, defined by tbe parameter "degrees"
+     * @param degrees : how many degrees the servo needs to turn, I.E, 90° 
      */
     //% blockId=Craft_and_Code_SetServoAngle
     //% block="set servo angle |%degrees| degrees"
@@ -227,7 +240,8 @@ namespace Craft_Code {
 
 
     /**
-     * Wait for Touchpad
+     * Wait for TouchPad
+     * Waits in an infinite loop, until the touchpad on the Craft and Code board has been pressed.
      */
     //% subcategory="more"
     //% block="wait for touchpad"
@@ -254,6 +268,7 @@ namespace Craft_Code {
     let firstSample = true;
     /**
      * Get TouchPad State
+     * Returns the state of the touchpad as a boolean (1 or 0) value
      */
     //% subcategory="more"
     //% block="touchpad pressed"
@@ -313,7 +328,8 @@ namespace Craft_Code {
     ////SWITCH///////
     ////////////////
     /**
-     * Switch state
+     * Switch State
+     * Returns the state of the switch pads as a boolean (1 or 0) value
      */
     //% blockId=Craft_and_Code_SwitchState
     //% block="switch closed"
