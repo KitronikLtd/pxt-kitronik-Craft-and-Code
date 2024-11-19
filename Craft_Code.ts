@@ -234,7 +234,7 @@ namespace CraftAndCode {
 
     /**
      * Wait for TouchPad. 
-     * The program will wait in an infinite loop, until there is a noted state change on Craft and Code boards touchpad..
+     * The program will wait in an infinite loop, until there is a noted state change on the Craft and Code boards touchpad.
      */
     //% subcategory="more"
     //% block="wait for touchpad"
