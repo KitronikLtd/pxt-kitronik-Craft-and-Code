@@ -1,7 +1,7 @@
 // test program for the Craft and Code Blocks. Should exercise all IO on the Craft and Code Board,
 // as well as all blocks within the Craft and Code extension.  
 // infinite loop
-// Martin, if this runs when the extension is added, I am not going to be happy.
+// uncommented, will see if PXT compiles this
 basic.forever(function () {
     // if switch contacts have been bridged, perform the following
     if (CraftAndCode.SwitchClosed()) {
