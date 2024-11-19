@@ -64,7 +64,7 @@ namespace CraftAndCode {
      * Turns the Bulb Output On or Off, as defined by a drop down menu
      * @param bulbstate : On - turns the bulb output on, Off - turns the bulb output off
      */
-    //% blockId=Craft_and_Code_TurnBulb
+    //% blockId=craft_and_code_turnbulb
     //% block="turn bulb |%bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -104,7 +104,7 @@ namespace CraftAndCode {
      * "bright", the brightest possible setting for the bulb 
      */
     //% subcategory="more"
-    //% blockId=Craft_and_Code_SetBulbBrightness
+    //% blockId=craft_and_code_setbulbbrightness
     //% block="set bulb brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -128,7 +128,7 @@ namespace CraftAndCode {
      * Turns the Motor Output On or Off, as defined by a drop down menu
      * @param motorstate : On - turns the motor output on, Off - turns the motor output off
      */
-    //% blockId=Craft_and_Code_TurnMotor
+    //% blockId=craft_and_code_turnmotor
     //% block="turn motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -172,7 +172,7 @@ namespace CraftAndCode {
      * "fast", the fastest possible speed for the motor
      */
     //% subcategory="more"
-    //% blockId=Craft_and_Code_SetMotorSpeed
+    //% blockId=craft_and_code_setmotorspeed
     //% block="set motor speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
@@ -213,7 +213,7 @@ namespace CraftAndCode {
      * Moves the attached Servo to the requested angle, defined by tbe parameter "degrees"
      * @param degrees : how many degrees the servo needs to turn, I.E, 90° 
      */
-    //% blockId=Craft_and_Code_SetServoAngle
+    //% blockId=craft_and_code_setservoangle
     //% block="set servo angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
@@ -245,7 +245,7 @@ namespace CraftAndCode {
      */
     //% subcategory="more"
     //% block="wait for touchpad"
-    //% blockId=Craft_and_Code_Wait_for_touchpad
+    //% blockId=craft_and_code_wait_for_touchpad
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
@@ -255,29 +255,29 @@ namespace CraftAndCode {
 
         // Now, wait for the touchpad to be pressed
         while (!touchPadState) {
-            touchPadState = GetTouchPadState(); // Reading the touchpad state only here
+            touchPadState = CurrentTouchPadState(); // Reading the touchpad state only here
             basic.pause(1);
 
         }
         while (touchPadState) {
-            touchPadState = GetTouchPadState();
+            touchPadState = CurrentTouchPadState();
             basic.pause(1);
         }
     }
     let lastAverageReading = 0;
     let firstSample = true;
     /**
-     * Get TouchPad State
+     * Current TouchPad State
      * Returns the state of the touchpad as a boolean (1 or 0) value
      */
     //% subcategory="more"
     //% block="touchpad pressed"
-    //% blockId=Touchpad pressed
+    //% blockId=craft_and_code_touchpad_pressed
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
-    export function GetTouchPadState(): boolean {
-        //"get TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
+    export function CurrentTouchPadState(): boolean {
+        //"Current TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
         //the method of operation is to take the IO pin high digitally, wait a millisecond, and then read the voltage on the pin
         //if a human finger is present, the decay of the voltage on the pin is much quicker than if no finger is present 
         //the average difference between no finger and a finger present is approximately a 5% increase in the readings.
@@ -295,7 +295,7 @@ namespace CraftAndCode {
         let isTouched = false;
         //We take 400 samples in 40ms, and take an average of the reading - this is to average out mains hum at 50/60hz
         while (input.runningTime() - startTime_1 < 40) {
-            setCustomPinHigh(); //SetCustomPinHigh and setCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
+            SetCustomPinHigh(); //SetCustomPinHigh and SetCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
             control.waitMicros(100) // wait 100 MicroSeconds to read the data halfway through the curve  
             currentReading = pins.analogReadPin(AnalogPin.P0) //read the voltage on the pin - this should be at the midpoint of the decay curve due to the previous 1ms delay
             samplesTotal += currentReading // Add current reading to reading total, so we can average it later
@@ -303,7 +303,7 @@ namespace CraftAndCode {
         }
 
         //force the pin low, to drain the rest of the voltage stored on the pin 
-        setCustomPinLow();
+        SetCustomPinLow();
 
 
         let currentAverageReading = samplesTotal / sampleCount; // Calculate the average of the samples taken within 40ms
@@ -331,7 +331,7 @@ namespace CraftAndCode {
      * Switch State
      * Returns the state of the switch pad as a boolean (1 or 0) value
      */
-    //% blockId=Craft_and_Code_SwitchState
+    //% blockId=craft_and_code_switchstate
     //% block="switch closed"
     //% weight=100 blockGap=8
     //% color=#770c67
