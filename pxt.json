@@ -1,15 +1,12 @@
 {
     "name": "pxt-kitronik-craft-and-code",
+    "version": "1.0.1",
     "description": "Blocks to support the Kitronik Craft and Code board",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "radio": "*",
-        "microphone": "*"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
         "README.md",
         "Craft_Code.ts",
         "customPinControl.ts",
