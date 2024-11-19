@@ -1,6 +1,7 @@
 {
     "name": "pxt-kitronik-Craft-and-Code",
-    "description": "",
+    "description": "Blocks to support the Kitronik Craft and Code board",
+    "license": "MIT",
     "dependencies": {
         "core": "*",
         "radio": "*",
