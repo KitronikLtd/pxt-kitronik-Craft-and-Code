@@ -4,51 +4,51 @@
 // Martin, if this runs when the extension is added, I am not going to be happy.
 basic.forever(function () {
     // if switch contacts have been bridged, perform the following
-    if (Craft_Code.SwitchClosed()) {
+    if (CraftAndCode.SwitchClosed()) {
         // turn the bulb output off
-        Craft_Code.TurnBulb(Craft_Code.bulbState.Off)
+        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
         // turn the motor output off
-        Craft_Code.TurnMotor(Craft_Code.MotorState.Off)
+        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.Off)
         // set servo to move to 0°
-        Craft_Code.setServoAngle(0)
+        CraftAndCode.SetServoAngle(0)
     } else {
         // if the switch contacts are not bridged, perform the following:
         // turn bulb output on, by default this is at the highest brightness
-        Craft_Code.TurnBulb(Craft_Code.bulbState.On)
+        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
         // turn motor output on, by default this is at the slowest motor speed
-        Craft_Code.TurnMotor(Craft_Code.MotorState.On)
+        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
         // set servo to move to 180°
-        Craft_Code.setServoAngle(180)
+        CraftAndCode.SetServoAngle(180)
     }
     // if the user has touched the touchpad on the Craft and Code board (not on the MicroBit!), do the following
-    if (Craft_Code.getTouchPadState()) {
+    if (CraftAndCode.CurrentTouchPadState()) {
         // set motor to the slowest speed
-        Craft_Code.SetMotorSpeed(Craft_Code.MotorSpeedState.Slow)
+        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Slow)
         // set bulb to lowest brightness
-        Craft_Code.SetBulbBrightness(Craft_Code.BulbBrightnessState.Dim)
+        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Dim)
         // turn motor output on - this is only needed once when the brightness is adjusted and the output was previously off
-        Craft_Code.TurnBulb(Craft_Code.bulbState.On)
+        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
         // turn motor output on - this is only needed once when the speed is adjusted and the output was previously off
-        Craft_Code.TurnMotor(Craft_Code.MotorState.On)
+        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
         // move the servo to 30°
-        Craft_Code.setServoAngle(30)
+        CraftAndCode.SetServoAngle(30)
         // wait in an infinite loop until the touchpad on the Craft and Code board is touched again
-        Craft_Code.waitForTouchPad()
+        CraftAndCode.WaitForTouchPad()
         // set the motor speed to a "medium" speed - as the output is already on, the "turn bulb on" block is not needed
-        Craft_Code.SetMotorSpeed(Craft_Code.MotorSpeedState.Medium)
+        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Medium)
         // set the bulb to the medium brightness - as the output is already on, the "turn motor on" block is not needed
-        Craft_Code.SetBulbBrightness(Craft_Code.BulbBrightnessState.Medium)
+        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Medium)
         // set the servo to move to 60°
-        Craft_Code.setServoAngle(60)
+        CraftAndCode.SetServoAngle(60)
         // again, wait in an infinite loop until the touchpad is pressed
-        Craft_Code.waitForTouchPad()
+        CraftAndCode.WaitForTouchPad()
         // set the motor to the maximum possible speed
-        Craft_Code.SetMotorSpeed(Craft_Code.MotorSpeedState.Fast)
+        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Fast)
         // set the bulb to the highest brightness
-        Craft_Code.SetBulbBrightness(Craft_Code.BulbBrightnessState.Bright)
+        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Bright)
         // move the servo to 90°
-        Craft_Code.setServoAngle(90)
+        CraftAndCode.SetServoAngle(90)
         // again, wait in an infinite loop for the touchpad to be pressed before returning to the program
-        Craft_Code.waitForTouchPad()
+        CraftAndCode.WaitForTouchPad()
     }
 })
