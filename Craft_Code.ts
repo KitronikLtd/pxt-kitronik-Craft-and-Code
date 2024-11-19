@@ -60,8 +60,8 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * turn bulb on/off: Turns the Bulb Output On or Off, as defined by a drop down menu
-     * @param bulbstate : On - turns the bulb output on. Off - turns the bulb output off.
+     * turn bulb [bulbstate]: Turns the craft and code bulb output on or off, as defined by a drop down menu.
+     * @param bulbstate : on - turns the bulb output on. off - turns the bulb output off.
      */
     //% blockId=craft_and_code_turnbulb
     //% block="turn bulb |%bulbstate||"
@@ -96,7 +96,7 @@ namespace CraftAndCode {
     ////////////////////////
 
     /**
-     * Set Bulb brightness : changes the brightness of the attached bulb to three possible states, defined by a drop down menu.
+     * Set Bulb brightness [brightnessstate]: changes the brightness of the attached bulb to three possible states, defined by a drop down menu.
      * @param brightnessstate : "dim", the lowest possible brightness for the bulb. "medium", the midpoint between the lowest and highest brightness. "bright", the brightest possible setting for the bulb. 
      */
     //% subcategory="more"
@@ -121,8 +121,8 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * turn motor on/off: Turns the Motor Output On or Off, As Defined By a Drop Down Menu.
-     * @param motorstate : On - turns the motor output on. Off - turns the motor output off. 
+     * turn motor [motorstate]: Turns the craft and code motor output on or off, as defined by a drop down menu.
+     * @param motorstate : on - turns the motor output on. off - turns the motor output off. 
      */
     //% blockId=craft_and_code_turnmotor
     //% block="turn motor |%motorstate||"
@@ -161,9 +161,9 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * Set motor speed.
-     * Changes the speed of the attached motor to three possible states, defined by a drop down menu.
-     * @param speedstate : "slow", the slowest possible speed for the motor to run at. "medium", the midpoint between the slowest and fastest the motor can run. "fast", the fastest possible speed for the motor. 
+     * Set motor speed [speedstate]:
+     * Changes the speed of a DC motor connected to the craft and code motor pads to one of three possible states, defined by a drop down menu.
+     * @param speedstate : "slow", the slowest possible speed for the attached motor to run at. "medium", the midpoint between the slowest and fastest the attached motor can run. "fast", the fastest possible speed for the attached motor. 
      */
     //% subcategory="more"
     //% blockId=craft_and_code_setmotorspeed
@@ -203,8 +203,8 @@ namespace CraftAndCode {
     //////////////
 
     /**
-     * set servo [degree] degrees: Moves the attached Servo to the requested angle, defined by tbe parameter "degrees".
-     * @param degrees : how many degrees the servo needs to turn, for example, 90° 
+     * set servo [degree] degrees: Moves an attached servo motor connected to the craft and code board on the servo connector to the requested angle, defined by tbe parameter "degrees".
+     * @param degrees : how many degrees the attached servo motor needs to turn, for example, 90° 
      */
     //% blockId=craft_and_code_setservoangle
     //% block="set servo angle |%degrees| degrees"
@@ -233,8 +233,9 @@ namespace CraftAndCode {
 
 
     /**
-     * Wait for TouchPad. 
-     * The program will wait in an infinite loop, until there is a noted state change on the Craft and Code boards touchpad.
+     * wait for touchPad:
+     * The program will wait in an infinite loop, until there is a noted state change on the craft and code boards touchpad.
+     * I.E, the craft and code touchpad is pressed by a finger.
      */
     //% subcategory="more"
     //% block="wait for touchpad"
@@ -260,10 +261,10 @@ namespace CraftAndCode {
     let lastAverageReading = 0;
     let firstSample = true;
     /**
-     * Current TouchPad State. 
-     * Returns the state of the touchpad as a boolean (1 or 0) value.
-     * When the Touchpad is pressed, a boolean 1 is returned. 
-     * When the Touchpad is not pressed, a boolean 0 is returned.
+     * touchpad pressed: 
+     * Returns the state of the craft and code touchpad as a boolean (1 or 0) value.
+     * When the craft and code touchpad is pressed by a finger, a boolean 1 is returned. 
+     * When the craft and code touchpad is not pressed, a boolean 0 is returned.
      */
     //% subcategory="more"
     //% block="touchpad pressed"
@@ -323,10 +324,10 @@ namespace CraftAndCode {
     ////SWITCH///////
     ////////////////
     /**
-     * Switch Closed
-     * Returns the state of the switch pad as a boolean (1 or 0) value.
-     * When the Switch is Closed, a boolean 1 is returned. 
-     * When the Switch is Open, a boolean 0 is returned.
+     * switch closed:
+     * Returns the state of the craft and code switch pads as a boolean (1 or 0) value.
+     * When a switch connected to the craft and code switch pads is closed, a boolean 1 is returned. 
+     * When a switch connected to the craft and code switch pads is open, a boolean 0 is returned.
      */
     //% blockId=craft_and_code_switchstate
     //% block="switch closed"
