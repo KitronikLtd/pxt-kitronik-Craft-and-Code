@@ -61,7 +61,7 @@ namespace CraftAndCode {
 
     /**
      * turn bulb on/off: Turns the Bulb Output On or Off, as defined by a drop down menu
-     * @param bulbstate : On - turns the bulb output on, Off - turns the bulb output off
+     * @param bulbstate : On - turns the bulb output on. Off - turns the bulb output off.
      */
     //% blockId=craft_and_code_turnbulb
     //% block="turn bulb |%bulbstate||"
@@ -97,9 +97,7 @@ namespace CraftAndCode {
 
     /**
      * Set Bulb brightness : changes the brightness of the attached bulb to three possible states, defined by a drop down menu.
-     * @param brightnessstate : "dim", the lowest possible brightness for the bulb
-     * "medium", the midpoint between the lowest and highest brightness
-     * "bright", the brightest possible setting for the bulb 
+     * @param brightnessstate : "dim", the lowest possible brightness for the bulb. "medium", the midpoint between the lowest and highest brightness. "bright", the brightest possible setting for the bulb. 
      */
     //% subcategory="more"
     //% blockId=craft_and_code_setbulbbrightness
@@ -123,8 +121,8 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * Turns the Motor Output On or Off, as defined by a drop down menu
-     * @param motorstate : On - turns the motor output on, Off - turns the motor output off
+     * turn motor on/off: Turns the Motor Output On or Off, As Defined By a Drop Down Menu.
+     * @param motorstate : On - turns the motor output on. Off - turns the motor output off. 
      */
     //% blockId=craft_and_code_turnmotor
     //% block="turn motor |%motorstate||"
@@ -165,9 +163,7 @@ namespace CraftAndCode {
     /**
      * Set motor speed.
      * Changes the speed of the attached motor to three possible states, defined by a drop down menu.
-     * @param speedstate : "slow", the slowest possible speed for the motor to run at
-     * "medium", the midpoint between the slowest and fastest the motor can run
-     * "fast", the fastest possible speed for the motor
+     * @param speedstate : "slow", the slowest possible speed for the motor to run at. "medium", the midpoint between the slowest and fastest the motor can run. "fast", the fastest possible speed for the motor. 
      */
     //% subcategory="more"
     //% blockId=craft_and_code_setmotorspeed
@@ -207,9 +203,8 @@ namespace CraftAndCode {
     //////////////
 
     /**
-     * Set Servo Angle.
-     * Moves the attached Servo to the requested angle, defined by tbe parameter "degrees"
-     * @param degrees : how many degrees the servo needs to turn, I.E, 90° 
+     * set servo [degree] degrees: Moves the attached Servo to the requested angle, defined by tbe parameter "degrees".
+     * @param degrees : how many degrees the servo needs to turn, for example, 90° 
      */
     //% blockId=craft_and_code_setservoangle
     //% block="set servo angle |%degrees| degrees"
@@ -238,8 +233,8 @@ namespace CraftAndCode {
 
 
     /**
-     * Wait for TouchPad
-     * Waits in an infinite loop, until the touchpad on the Craft and Code board has been pressed.
+     * Wait for TouchPad. 
+     * The program will wait in an infinite loop, until there is a noted state change on Craft and Code boards touchpad..
      */
     //% subcategory="more"
     //% block="wait for touchpad"
@@ -265,8 +260,10 @@ namespace CraftAndCode {
     let lastAverageReading = 0;
     let firstSample = true;
     /**
-     * Current TouchPad State
-     * Returns the state of the touchpad as a boolean (1 or 0) value
+     * Current TouchPad State. 
+     * Returns the state of the touchpad as a boolean (1 or 0) value.
+     * When the Touchpad is pressed, a boolean 1 is returned. 
+     * When the Touchpad is not pressed, a boolean 0 is returned.
      */
     //% subcategory="more"
     //% block="touchpad pressed"
