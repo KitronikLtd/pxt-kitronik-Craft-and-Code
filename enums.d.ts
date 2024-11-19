@@ -1,5 +1,5 @@
 // Auto-generated. Do not edit.
-declare namespace Craft_Code {
+declare namespace CraftAndCode {
 }
 
 // Auto-generated. Do not edit. Really.

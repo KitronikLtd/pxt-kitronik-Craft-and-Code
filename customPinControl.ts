@@ -8,15 +8,15 @@ As such, we have written SetCustomPinHigh and SetCustomPinLow to set P0 high and
 Therefore we can implement our touch sensor without the simulator flickering.
 
 */
-namespace Craft_Code {
+namespace CraftAndCode {
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
     //% shim=Craft_Code::setCustomPinHigh
-    export function setCustomPinHigh(): void {
+    export function SetCustomPinHigh(): void {
         return;
     }
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
     //% shim=Craft_Code::setCustomPinLow
-    export function setCustomPinLow(): void {
+    export function SetCustomPinLow(): void {
         return;
     }
 }
