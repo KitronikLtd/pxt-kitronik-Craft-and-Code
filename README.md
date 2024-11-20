@@ -29,9 +29,9 @@ By default, the bulb is set to the brightest possible state.
 
 In this example, the bulb output on the Craft and Code Board is turned on for a second, before turning off:
 ```blocks
-CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
+kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
 basic.pause(1000)
-CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
+kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
 ```
 ### turn motor [on/off]
 
@@ -42,9 +42,9 @@ By default, the motor is set to the slowest possible state.
 
 In this example, the motor output on the Craft and Code Board is turned on for a second, before turning off:
 ```blocks
-CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
+kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.On)
 basic.pause(1000)
-CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.Off)
+kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.Off)
 ```
 
 ### set servo angle [value] degrees
