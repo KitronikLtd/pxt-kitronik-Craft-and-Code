@@ -10,12 +10,12 @@ Therefore we can implement our touch sensor without the simulator flickering.
 */
 namespace kitronikCraftAndCode {
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
-    //% shim=Craft_Code::setCustomPinHigh
+    //% shim=kitronikCraft_Code::setCustomPinHigh
     export function setCustomPinHigh(): void {
         return;
     }
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
-    //% shim=Craft_Code::setCustomPinLow
+    //% shim=kitronikCraft_Code::setCustomPinLow
     export function setCustomPinLow(): void {
         return;
     }
