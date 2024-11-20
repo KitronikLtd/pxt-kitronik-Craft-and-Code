@@ -60,18 +60,18 @@ namespace kitronikCraftAndCode {
     ////////////////
 
     /**
-     * turn bulb [BulbState]: Turns the craft and code bulb output on or off, as defined by a drop down menu
-     * @param BulbState : on - turns the bulb output on. off - turns the bulb output off.
+     * turn bulb [bulbstate]: Turns the craft and code bulb output on or off, as defined by a drop down menu
+     * @param bulbstate : on - turns the bulb output on. off - turns the bulb output off.
      */
     //% blockId=craft_and_code_turnBulb
-    //% block="turn bulb |%BulbState||"
+    //% block="turn bulb |%bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Bulb"
     //% x.min=0 x.max=1
     //% x.fieldOptions.precision=1
-    export function turnBulb(BulbState: BulbState): void {
-        isBulbOn = BulbState === BulbState.On;
+    export function turnBulb(bulbstate: BulbState): void {
+        isBulbOn = bulbstate === BulbState.On;
         if (isBulbOn) {
             if (lastBulbBrightness == BulbBrightnessState.Bright) {
                 // Use digital write for 100%
@@ -125,14 +125,14 @@ namespace kitronikCraftAndCode {
      * @param MotorState : on - turns the motor output on. off - turns the motor output off. 
      */
     //% blockId=craft_and_code_turnMotor
-    //% block="turn motor |%MotorState||"
+    //% block="turn motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Motor"
     //% y.min=0 y.max=1
     //% y.fieldOptions.precision=1
-    export function turnMotor(MotorState: MotorState): void {
-        if (MotorState === MotorState.On && !isMotorOn) {
+    export function turnMotor(motorstate: MotorState): void {
+        if (motorstate === MotorState.On && !isMotorOn) {
             isMotorOn = true;
             // Gradually increase the motor speed to last set speed
             let totalDuration = 500; // Total duration in milliseconds to reach desired speed.
@@ -147,7 +147,7 @@ namespace kitronikCraftAndCode {
                 basic.pause(pauseDuration);
             }
 
-        } else if (MotorState === MotorState.Off && isMotorOn) {
+        } else if (motorstate === MotorState.Off && isMotorOn) {
             isMotorOn = false;
 
             pins.analogWritePin(AnalogPin.P12, 0);
