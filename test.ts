@@ -4,51 +4,51 @@
 // uncommented, will see if PXT compiles this
 basic.forever(function () {
     // if switch contacts have been bridged, perform the following
-    if (CraftAndCode.SwitchClosed()) {
+    if (kitronikCraftAndCode.switchClosed()) {
         // turn the bulb output off
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
         // turn the motor output off
-        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.Off)
+        kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.Off)
         // set servo to move to 0°
-        CraftAndCode.SetServoAngle(0)
+        kitronikCraftAndCode.setServoAngle(0)
     } else {
         // if the switch contacts are not bridged, perform the following:
         // turn bulb output on, by default this is at the highest brightness
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
         // turn motor output on, by default this is at the slowest motor speed
-        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
+        kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.On)
         // set servo to move to 180°
-        CraftAndCode.SetServoAngle(180)
+        kitronikCraftAndCode.setServoAngle(180)
     }
     // if the user has touched the touchpad on the Craft and Code board (not on the MicroBit!), do the following
-    if (CraftAndCode.CurrentTouchPadState()) {
+    if (kitronikCraftAndCode.currentTouchPadState()) {
         // set motor to the slowest speed
-        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Slow)
+        kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Slow)
         // set bulb to lowest brightness
-        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Dim)
+        kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Dim)
         // turn motor output on - this is only needed once when the brightness is adjusted and the output was previously off
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
         // turn motor output on - this is only needed once when the speed is adjusted and the output was previously off
-        CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
+        kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.On)
         // move the servo to 30°
-        CraftAndCode.SetServoAngle(30)
+        kitronikCraftAndCode.setServoAngle(30)
         // wait in an infinite loop until the touchpad on the Craft and Code board is touched again
-        CraftAndCode.WaitForTouchPad()
+        kitronikCraftAndCode.waitForTouchPad()
         // set the motor speed to a "medium" speed - as the output is already on, the "turn bulb on" block is not needed
-        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Medium)
+        kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Medium)
         // set the bulb to the medium brightness - as the output is already on, the "turn motor on" block is not needed
-        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Medium)
+        kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Medium)
         // set the servo to move to 60°
-        CraftAndCode.SetServoAngle(60)
+        kitronikCraftAndCode.setServoAngle(60)
         // again, wait in an infinite loop until the touchpad is pressed
-        CraftAndCode.WaitForTouchPad()
+        kitronikCraftAndCode.waitForTouchPad()
         // set the motor to the maximum possible speed
-        CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Fast)
+        kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Fast)
         // set the bulb to the highest brightness
-        CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Bright)
+        kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Bright)
         // move the servo to 90°
-        CraftAndCode.SetServoAngle(90)
+        kitronikCraftAndCode.setServoAngle(90)
         // again, wait in an infinite loop for the touchpad to be pressed before returning to the program
-        CraftAndCode.WaitForTouchPad()
+        kitronikCraftAndCode.waitForTouchPad()
     }
 })

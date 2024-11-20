@@ -6,16 +6,16 @@ Yes, this entire function is for aesthetic reasons!
 #include "pxt.h"
 #include "MicroBit.h"
 
-namespace CraftAndCode {
+namespace kitronikCraftAndCode {
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
     //%
-    void SetCustomPinHigh(){
+    void setCustomPinHigh(){
         uBit.io.pin[0].setDigitalValue(1); // Set pin P0 high using C++
         return;
     }
     //the comment below isn't a comment! The percent sign is used to bridge the javascript function to the C++ function - don't touch!
     //%
-    void SetCustomPinLow(){
+    void setCustomPinLow(){
         uBit.io.pin[0].setDigitalValue(0); // Set pin P0 low using C++
         return; 
     }

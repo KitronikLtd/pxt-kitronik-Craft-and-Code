@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-craft-and-code",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Blocks to support the Kitronik Craft and Code board",
     "license": "MIT",
     "dependencies": {

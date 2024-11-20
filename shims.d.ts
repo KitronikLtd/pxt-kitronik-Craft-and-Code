@@ -1,6 +1,6 @@
 // Auto-generated. Do not edit.
 
-declare namespace CraftAndCode {
+declare namespace kitronikCraftAndCode {
 }
 
 // Auto-generated. Do not edit. Really.

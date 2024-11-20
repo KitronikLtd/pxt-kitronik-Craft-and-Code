@@ -5,7 +5,7 @@
 // subcategory=["More"]
 //% group = '["Bulb", "Motor", "Servo", "Touchpad"]'
 
-namespace CraftAndCode {
+namespace kitronikCraftAndCode {
     let lastBulbBrightness: number = 100;
     let lastMotorSpeed: number = 350; //initial speed of the motor - currently set to 350 = "slow"
     let isBulbOn: boolean = false;
@@ -14,7 +14,7 @@ namespace CraftAndCode {
     /**
      * Turn Bulb ON and OFF
      */
-    export enum BULBSTATE {
+    export enum BulbState {
         //% block="on"
         On,
         //% block="off"
@@ -24,7 +24,7 @@ namespace CraftAndCode {
     /**
      * Turn motor ON and OFF
      */
-    export enum MOTORSTATE {
+    export enum MotorState {
         //% block="on"
         On,
         //% block="off"
@@ -34,7 +34,7 @@ namespace CraftAndCode {
     /**
      * Set light brightness
      */
-    export enum BULBBRIGHTNESSSTATE {
+    export enum BulbBrightnessState {
         //% block="dim"
         Dim = 33,
         //% block="medium"
@@ -46,7 +46,7 @@ namespace CraftAndCode {
     /**
      * Set motor speed
      */
-    export enum MOTORSPEEDSTATE {
+    export enum MotorSpeedState {
         //% block="slow"
         Slow = 350,
         //% block="medium"
@@ -63,17 +63,17 @@ namespace CraftAndCode {
      * turn bulb [bulbstate]: Turns the craft and code bulb output on or off, as defined by a drop down menu
      * @param bulbstate : on - turns the bulb output on. off - turns the bulb output off.
      */
-    //% blockId=craft_and_code_turnbulb
+    //% blockId=craft_and_code_turnBulb
     //% block="turn bulb |%bulbstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Bulb"
     //% x.min=0 x.max=1
     //% x.fieldOptions.precision=1
-    export function TurnBulb(bulbstate: BULBSTATE): void {
-        isBulbOn = bulbstate === BULBSTATE.On;
+    export function turnBulb(bulbstate: BulbState): void {
+        isBulbOn = bulbstate === BulbState.On;
         if (isBulbOn) {
-            if (lastBulbBrightness == BULBBRIGHTNESSSTATE.Bright) {
+            if (lastBulbBrightness == BulbBrightnessState.Bright) {
                 // Use digital write for 100%
                 pins.digitalWritePin(DigitalPin.P8, 1);
             }
@@ -100,13 +100,13 @@ namespace CraftAndCode {
      * @param brightnessstate : "dim", the lowest possible brightness for the bulb. "medium", the midpoint between the lowest and highest brightness. "bright", the brightest possible setting for the bulb. 
      */
     //% subcategory="more"
-    //% blockId=craft_and_code_setbulbbrightness
+    //% blockId=craft_and_code_setBulbBrightness
     //% block="set bulb brightness |%brightnessstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Bulb"
 
-    export function SetBulbBrightness(brightnessstate: BULBBRIGHTNESSSTATE): void {
+    export function setBulbBrightness(brightnessstate: BulbBrightnessState): void {
         // Always store the last value, but do not calculate or apply it yet
         lastBulbBrightness = brightnessstate as number;  // Store the last set value
         if (isBulbOn) { // Check if the Bulb is on before setting brightness
@@ -121,18 +121,18 @@ namespace CraftAndCode {
     ////////////////
 
     /**
-     * turn motor [motorstate]: Turns the craft and code motor output on or off, as defined by a drop down menu.
-     * @param motorstate : on - turns the motor output on. off - turns the motor output off. 
+     * turn motor [MotorState]: Turns the craft and code motor output on or off, as defined by a drop down menu.
+     * @param MotorState : on - turns the motor output on. off - turns the motor output off. 
      */
-    //% blockId=craft_and_code_turnmotor
+    //% blockId=craft_and_code_turnMotor
     //% block="turn motor |%motorstate||"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Motor"
     //% y.min=0 y.max=1
     //% y.fieldOptions.precision=1
-    export function TurnMotor(motorstate: MOTORSTATE): void {
-        if (motorstate === MOTORSTATE.On && !isMotorOn) {
+    export function turnMotor(motorstate: MotorState): void {
+        if (motorstate === MotorState.On && !isMotorOn) {
             isMotorOn = true;
             // Gradually increase the motor speed to last set speed
             let totalDuration = 500; // Total duration in milliseconds to reach desired speed.
@@ -147,7 +147,7 @@ namespace CraftAndCode {
                 basic.pause(pauseDuration);
             }
 
-        } else if (motorstate === MOTORSTATE.Off && isMotorOn) {
+        } else if (motorstate === MotorState.Off && isMotorOn) {
             isMotorOn = false;
 
             pins.analogWritePin(AnalogPin.P12, 0);
@@ -166,12 +166,12 @@ namespace CraftAndCode {
      * @param speedstate : "slow", the slowest possible speed for the attached motor to run at. "medium", the midpoint between the slowest and fastest the attached motor can run. "fast", the fastest possible speed for the attached motor. 
      */
     //% subcategory="more"
-    //% blockId=craft_and_code_setmotorspeed
+    //% blockId=craft_and_code_setMotorSpeed
     //% block="set motor speed |%speedstate|"
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Motor"
-    export function SetMotorSpeed(speedstate: MOTORSPEEDSTATE): void {
+    export function setMotorSpeed(speedstate: MotorSpeedState): void {
         // Always store the last value
         let newSpeed = speedstate as number;
 
@@ -206,7 +206,7 @@ namespace CraftAndCode {
      * set servo [degree] degrees: Moves an attached servo motor connected to the craft and code board on the servo connector to the requested angle, defined by tbe parameter "degrees".
      * @param degrees : how many degrees the attached servo motor needs to turn, for example, 90° 
      */
-    //% blockId=craft_and_code_setservoangle
+    //% blockId=craft_and_code_setServoAngle
     //% block="set servo angle |%degrees| degrees"
     //% color=#770c67
     //% degrees.min=0 degrees.max=180
@@ -214,7 +214,7 @@ namespace CraftAndCode {
     //% degrees.shadow="protractorPicker"
     //% weight=100 blockGap=8
     //% group="Servo"
-    export function SetServoAngle(degrees: number) {
+    export function setServoAngle(degrees: number) {
         // Check if the degrees are greater than 180
         if (degrees > 180 || degrees < 0) {
             console.error("Error: Angle cannot be more than 180 degrees or less then 0");
@@ -243,18 +243,18 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
-    export function WaitForTouchPad(): void {
+    export function waitForTouchPad(): void {
 
         let touchPadState = false; // Initially, the touchpad is not pressed
 
         // Now, wait for the touchpad to be pressed
         while (!touchPadState) {
-            touchPadState = CurrentTouchPadState(); // Reading the touchpad state only here
+            touchPadState = currentTouchPadState(); // Reading the touchpad state only here
             basic.pause(1);
 
         }
         while (touchPadState) {
-            touchPadState = CurrentTouchPadState();
+            touchPadState = currentTouchPadState();
             basic.pause(1);
         }
     }
@@ -272,7 +272,7 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Touchpad"
-    export function CurrentTouchPadState(): boolean {
+    export function currentTouchPadState(): boolean {
         //"Current TouchPadState" is effectively a bitbashed Capacitive Touch Sensor, which can run on a V1 or V2 Micro:bit
         //the method of operation is to take the IO pin high digitally, wait a millisecond, and then read the voltage on the pin
         //if a human finger is present, the decay of the voltage on the pin is much quicker than if no finger is present 
@@ -291,7 +291,7 @@ namespace CraftAndCode {
         let isTouched = false;
         //We take 400 samples in 40ms, and take an average of the reading - this is to average out mains hum at 50/60hz
         while (input.runningTime() - startTime_1 < 40) {
-            SetCustomPinHigh(); //SetCustomPinHigh and SetCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
+            setCustomPinHigh(); //SetCustomPinHigh and SetCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
             control.waitMicros(100) // wait 100 MicroSeconds to read the data halfway through the curve  
             currentReading = pins.analogReadPin(AnalogPin.P0) //read the voltage on the pin - this should be at the midpoint of the decay curve due to the previous 1ms delay
             samplesTotal += currentReading // Add current reading to reading total, so we can average it later
@@ -299,7 +299,7 @@ namespace CraftAndCode {
         }
 
         //force the pin low, to drain the rest of the voltage stored on the pin 
-        SetCustomPinLow();
+        setCustomPinLow();
 
 
         let currentAverageReading = samplesTotal / sampleCount; // Calculate the average of the samples taken within 40ms
@@ -334,7 +334,7 @@ namespace CraftAndCode {
     //% weight=100 blockGap=8
     //% color=#770c67
     //% group="Switch"
-    export function SwitchClosed(): boolean {
+    export function switchClosed(): boolean {
         //switch is connected to Pin P1
         return pins.digitalReadPin(DigitalPin.P1) == 1;
     }
