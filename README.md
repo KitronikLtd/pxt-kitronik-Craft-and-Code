@@ -56,9 +56,9 @@ In this case, the pin is predefined to pin P2.
 In the below example, a servo connected to the servo connection on the craft and code board moves to
 the 0° position, and then to 180° five seconds later:
 ```blocks
-CraftAndCode.SetServoAngle(0)
+kitronikCraftAndCode.setServoAngle(0)
 basic.pause(5000)
-CraftAndCode.SetServoAngle(180)
+kitronikCraftAndCode.setServoAngle(180)
 ```
 
 ### switch closed
@@ -71,10 +71,10 @@ In the below example, when the switch contacts are bridged [closed] , the light 
 When the switch pads are left open, the light turns off:
 ```blocks
 basic.forever(function () {
-    if (CraftAndCode.SwitchClosed()) {
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
+    if (kitronikCraftAndCode.switchClosed()) {
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
     } else {
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
     }
 })
 ```
@@ -92,15 +92,15 @@ If the output is already on, the brightness changes immediately, without the use
 In this example, the bulb brightness increases as the touchpad is pressed, using the "wait for touchpad" block:
 ```blocks
 basic.forever(function () {
-    CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Dim)
-    CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Medium)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetBulbBrightness(CraftAndCode.BULBBRIGHTNESSSTATE.Bright)
-    CraftAndCode.WaitForTouchPad()
+    kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
+    kitronikCraftAndCode.waitForTouchPad()
+    kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Dim)
+    kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
+    kitronikCraftAndCode.waitForTouchPad()
+    kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Medium)
+    kitronikCraftAndCode.waitForTouchPad()
+    kitronikCraftAndCode.setBulbBrightness(kitronikCraftAndCode.BulbBrightnessState.Bright)
+    kitronikCraftAndCode.waitForTouchPad()
 })
 ```
 Note that the "turn bulb on" is only called once, after the brightness has been initially set by the "set bulb brightness" block.
@@ -115,15 +115,15 @@ If the output is already on, the speed changes immediately, without the user nee
 In the following example, the speed of the motor increases as the touchpad is pressed, again using the "wait for touchpad" block:
 ```blocks
 basic.forever(function () {
-    CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.Off)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Slow)
-    CraftAndCode.TurnMotor(CraftAndCode.MOTORSTATE.On)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Medium)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.SetMotorSpeed(CraftAndCode.MOTORSPEEDSTATE.Fast)
-    CraftAndCode.WaitForTouchPad()
+kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.Off)
+kitronikCraftAndCode.waitForTouchPad()
+kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Slow)
+kitronikCraftAndCode.turnMotor(kitronikCraftAndCode.MotorState.On)
+kitronikCraftAndCode.waitForTouchPad()
+kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Medium)
+kitronikCraftAndCode.waitForTouchPad()
+kitronikCraftAndCode.setMotorSpeed(kitronikCraftAndCode.MotorSpeedState.Fast)
+kitronikCraftAndCode.waitForTouchPad()
 })
 ```
 
@@ -141,10 +141,10 @@ In the below example, when the touchpad is pressed, the light output turns - but
 When the touchpad is not pressed, the light turns off:
 ```blocks
 basic.forever(function () {
-    if (CraftAndCode.CurrentTouchPadState()) {
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
+    if (kitronikCraftAndCode.currentTouchPadState()) {
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
     } else {
-        CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
+        kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
     }
 })
 ```
@@ -158,10 +158,10 @@ After this, the bulb output remains on until another touchpad event is detected.
 
 ```blocks
 basic.forever(function () {
-    CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.Off)
-    CraftAndCode.WaitForTouchPad()
-    CraftAndCode.TurnBulb(CraftAndCode.BULBSTATE.On)
-    CraftAndCode.WaitForTouchPad()
+    kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.Off)
+    kitronikCraftAndCode.waitForTouchPad()
+    kitronikCraftAndCode.turnBulb(kitronikCraftAndCode.BulbState.On)
+    kitronikCraftAndCode.waitForTouchPad()
 })
 ```
 
