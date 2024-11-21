@@ -10,7 +10,6 @@
         "README.md",
         "Craft_Code.ts",
         "customPinControl.ts",
-        "customPinControl.cpp",
         "shims.d.ts",
         "enums.d.ts"
     ],
