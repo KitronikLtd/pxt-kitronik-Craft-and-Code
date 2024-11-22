@@ -291,7 +291,7 @@ namespace kitronikCraftAndCode {
         let isTouched = false;
         //We take 400 samples in 40ms, and take an average of the reading - this is to average out mains hum at 50/60hz
         while (input.runningTime() - startTime_1 < 40) {
-            setCustomPinHigh(); //SetCustomPinHigh and SetCustomPinLow call a C function (described in customPinControl.ts and customPinControl.cpp)
+            setCustomPinHigh(); //SetCustomPinHigh and SetCustomPinLow call a separate function that does not invoke the simulator (described in customPinControl.ts)
             control.waitMicros(100) // wait 100 MicroSeconds to read the data halfway through the curve  
             currentReading = pins.analogReadPin(AnalogPin.P0) //read the voltage on the pin - this should be at the midpoint of the decay curve due to the previous 1ms delay
             samplesTotal += currentReading // Add current reading to reading total, so we can average it later
