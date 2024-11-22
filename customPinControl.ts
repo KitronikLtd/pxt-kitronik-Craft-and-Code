@@ -11,14 +11,16 @@ This might trip us up at some point, but appears to work so far
 */
 namespace kitronikCraftAndCode {
 
+    let serialNumberCheck = control.deviceName()    //check the serial number once using control.deviceName, store in variable "serialNumberCheck"
+
     export function setCustomPinHigh(): void {      //retaining the setCustomPinHigh function, in case a better solution comes along 
-        if(control.deviceName() != "sim-")          //if the device name (serial number) is anything other than "sim-"...
+        if (serialNumberCheck != "sim-")            //if the device name (serial number) is anything other than "sim-"...
             pins.digitalWritePin(DigitalPin.P0, 1)  //...then set P0 high.
         return;                                     //otherwise - do nothing, because we're in the simulator. 
     }
 
     export function setCustomPinLow(): void {       //retaining the setCustomPinHigh function, in case a better solution comes along
-        if (control.deviceName() != "sim-")         //if the device name (serial number) is anything other than "sim-"...
+        if (serialNumberCheck != "sim-")            //if the device name (serial number) is anything other than "sim-"...
             pins.digitalWritePin(DigitalPin.P0, 0)  //...then set P0 high.
         return;                                     //otherwise - do nothing, because we're in the simulator.
     }
